@@ -73,6 +73,7 @@ function buildPage(data){
             </div>
         </div>
         <div class="container">
+            <div class="row">
                 ${buildCards(data)}
             </div>
         </div>
