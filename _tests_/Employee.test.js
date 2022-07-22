@@ -1,3 +1,39 @@
+const Employee = require('../lib/Employee')
+
+describe("Employee Class", () => {
+    it("should create a new employee with their name, id, and email", () => {
+        const employee = new Employee("Bob", 1, "test@test.com")
+        const result = {name: 'Bob' , id: 1, email: 'test@test.com'}
+        expect(employee).toEqual(result); 
+    });
+    describe('getName', ()=>{
+        it('getName returns the employee name', () => {
+            const employee = new Employee("Bob", 1, "test@test.com")
+            expect(employee.getName()).toBe('Bob')
+        })
+    })
+    describe('getId', ()=>{
+        it('getID returns the employee ID', () => {
+            const employee = new Employee("Bob", 1, "test@test.com")
+            expect(employee.getId()).toBe(1)
+        })
+    })
+    describe('getEmail', ()=>{
+        it('getEmail returns the employee Email', () => {
+            const employee = new Employee("Bob", 1, "test@test.com")
+            expect(employee.getEmail()).toBe('test@test.com')
+        })
+    })
+    describe('getRole', ()=>{
+        it('getRole returns the employee role', () => {
+            const employee = new Employee("Bob", 1, "test@test.com")
+            expect(employee.getRole()).toBe('Employee')
+        })
+    })
+});
+
+
+
 //test object created
 //test methods
 

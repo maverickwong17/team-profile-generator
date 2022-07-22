@@ -1,2 +1,2 @@
-//test object created
-//test methods
+const Employee = require('../lib/Employee')
+
