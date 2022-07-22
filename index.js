@@ -8,7 +8,7 @@ const buildPage = require("./src/buildPage")
 
 var team = []
 
-var teamManager = () => {
+const teamManager = () => {
     inquirer.prompt([
         {
         type: 'input',
@@ -32,15 +32,13 @@ var teamManager = () => {
         },
       ])
     .then((manData) =>{
-        console.log(manData)
         team.push(new Manager(manData.name,manData.id,manData.email,manData.officeNumber))
-        console.log(team)
         addTeam()
     })
 }
 
 
-var engineer = () => {
+const engineer = () => {
     inquirer.prompt([
         {
         type: 'input',
@@ -64,14 +62,12 @@ var engineer = () => {
         },
       ])
     .then((engData) =>{
-        console.log(engData)
         team.push(new Engineer(engData.name,engData.id,engData.email,engData.username))
-        console.log(team)
         addTeam()
     }
 )}
 
-var intern = () => {
+const intern = () => {
     inquirer.prompt([
         {
         type: 'input',
@@ -95,14 +91,12 @@ var intern = () => {
         },
       ])
     .then((intData) =>{
-        console.log(intData)
         team.push(new Intern(intData.name,intData.id,intData.email,intData.school))
-        console.log(team)
         addTeam()
     }
 )}
 
-var addTeam = () =>{
+const addTeam = () =>{
     inquirer.prompt(    
         {
             type: 'list',
@@ -126,7 +120,7 @@ var addTeam = () =>{
     }
 )}
 
-var build = (data) =>{
+const build = (data) =>{
     fs.writeFile("./dist/index.html", buildPage(data), (err) =>
     err ? console.err(err) : console.log('Page Built')
 )}

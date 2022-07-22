@@ -3,12 +3,12 @@ function managerCard(member){
 <div class="col-sm">
     <div class="card mb-5" style="width: 18rem;">
         <div class="card-body bg-primary">
-            <h3 class="card-title text-white">Name</h3>
+            <h3 class="card-title text-white">${member.getName()}</h3>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item text-white bg-primary h4">Manager</li>
-                <li class="list-group-item"><p class="card-text">ID</p></li>
-                <li class="list-group-item">Email: <a href="mailto:sample@sample.com" class="card-link">sample@sample.com</a></li>
-                <li class="list-group-item"><p class="card-text">Office Number</p></li>
+                <li class="list-group-item"><p class="card-text">ID: ${member.getId()}</p></li>
+                <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}" class="card-link">${member.getEmail()}</a></li>
+                <li class="list-group-item"><p class="card-text">Office Number: ${member.getOfficeNumber()}</p></li>
             </ul>
         </div>
     </div>
@@ -20,12 +20,12 @@ function engineerCard(member){
 <div class="col-sm">
     <div class="card mb-5" style="width: 18rem;">
         <div class="card-body bg-primary">
-            <h3 class="card-title text-white">Name</h3>
+            <h3 class="card-title text-white">${member.getName()}</h3>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item text-white bg-primary h4">Engineer</li>
-                <li class="list-group-item"><p class="card-text">ID</p></li>
-                <li class="list-group-item">Email: <a href="mailto:sample@sample.com" class="card-link">sample@sample.com</a></li>
-                <li class="list-group-item">GitHub: <a href="https://github.com/username" class="card-link" target="_blank">username</a></li>
+                <li class="list-group-item"><p class="card-text">ID: ${member.getId()}</p></li>
+                <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}" class="card-link">${member.getEmail()}</a></li>
+                <li class="list-group-item">GitHub: <a href="https://github.com/${member.getGithub()}" class="card-link" target="_blank">${member.getGithub()}</a></li>
             </ul>
         </div>
     </div>
@@ -37,12 +37,12 @@ function internCard(member){
 <div class="col-sm">
     <div class="card mb-5" style="width: 18rem;">
         <div class="card-body bg-primary">
-            <h3 class="card-title text-white">Name</h3>
+            <h3 class="card-title text-white">${member.getName()}</h3>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item text-white bg-primary h4">Manager</li>
-                <li class="list-group-item"><p class="card-text">ID</p></li>
-                <li class="list-group-item">Email: <a href="mailto:sample@sample.com" class="card-link">sample@sample.com</a></li>
-                <li class="list-group-item"><p class="card-text">School</p></li>
+                <li class="list-group-item text-white bg-primary h4">Intern</li>
+                <li class="list-group-item"><p class="card-text">ID: ${member.getId()}</p></li>
+                <li class="list-group-item">Email: <a href="mailto:${member.getEmail()}" class="card-link">${member.getEmail()}</a></li>
+                <li class="list-group-item"><p class="card-text">School: ${member.getSchool()}</p></li>
             </ul>
         </div>
     </div>
@@ -51,7 +51,26 @@ function internCard(member){
 }
 
 function buildCards(data){
-
+    var output = ''
+    for(let i = 0; i < data.length ; i++){
+        team = (data[i])
+        console.log(data[i])
+        let role = (data[i].getRole())
+        console.log(role)
+        if(role === 'Manager'){
+            console.log('manCard')
+            output += managerCard(team)
+        }
+        if(role === 'Engineer'){
+            console.log("engCard")
+            output += engineerCard(team)
+        }
+        if(role === 'Intern'){
+            console.log('intCard')
+            output += internCard(team)
+        }
+    }
+    return output
 }
 
 
