@@ -8,6 +8,9 @@ const buildPage = require("./src/buildPage")
 
 var team = []
 
+/**
+ * manager prompts
+ */
 const teamManager = () => {
     inquirer.prompt([
         {
@@ -37,7 +40,9 @@ const teamManager = () => {
     })
 }
 
-
+/**
+ * engineer prompts
+ */
 const engineer = () => {
     inquirer.prompt([
         {
@@ -66,7 +71,9 @@ const engineer = () => {
         addTeam()
     }
 )}
-
+/**
+ * intern prompts
+ */
 const intern = () => {
     inquirer.prompt([
         {
@@ -96,6 +103,9 @@ const intern = () => {
     }
 )}
 
+/**
+ * asks if add another team member
+ */
 const addTeam = () =>{
     inquirer.prompt(    
         {
@@ -120,11 +130,18 @@ const addTeam = () =>{
     }
 )}
 
+/**
+ * Writes to index.html file through buildPage.js
+ * @param {array} data array of team members fed to  
+ */
 const build = (data) =>{
     fs.writeFile("./dist/index.html", buildPage(data), (err) =>
     err ? console.err(err) : console.log('Page Built')
 )}
 
+/**
+ * initialize on startup
+ */
 function init(){
     teamManager()
 }

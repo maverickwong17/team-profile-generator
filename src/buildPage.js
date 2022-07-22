@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {object} member -> team member object  
+ * @returns manager card
+ */
 function managerCard(member){
     return`
 <div class="col-sm">
@@ -14,7 +19,11 @@ function managerCard(member){
     </div>
 </div>`
 }
-
+/**
+ * 
+ * @param {object} member -> team member object  
+ * @returns engineer card
+ */
 function engineerCard(member){
     return`
 <div class="col-sm">
@@ -31,7 +40,11 @@ function engineerCard(member){
     </div>
 </div>`
 }
-
+/**
+ * 
+ * @param {object} member -> team member object  
+ * @returns intern card
+ */
 function internCard(member){
     return`          
 <div class="col-sm">
@@ -49,7 +62,11 @@ function internCard(member){
   </div>
 </div>`
 }
-
+/**
+ * 
+ * @param {array} data array of objects to generate html card info
+ * @returns set of html cards
+ */
 function buildCards(data){
     var output = ''
     for(let i = 0; i < data.length ; i++){
@@ -74,7 +91,11 @@ function buildCards(data){
 }
 
 
-
+/**
+ * 
+ * @param {array} data array of objects to be passed into the build cards funciton
+ * @returns html page
+ */
 function buildPage(data){
     return `<!DOCTYPE html>
     <html lang="en">
